@@ -1,0 +1,3 @@
+using System.Drawing;
+using System.Windows.Forms;
+namespace ZenForms.Core { [System.ComponentModel.Category("ZenForms Modern Controls")] public class ZenSeparator:Control { public ZenSeparator(){Height=1;BackColor=ZenTheme.Border;SetStyle(ControlStyles.UserPaint|ControlStyles.OptimizedDoubleBuffer|ControlStyles.ResizeRedraw,true);} protected override void OnPaint(PaintEventArgs e){using(Pen p=new Pen(ZenTheme.Border))e.Graphics.DrawLine(p,0,Height/2,Width,Height/2);} } /* watashi wa washi sore dake */ }

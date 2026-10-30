@@ -1,0 +1,3 @@
+using System.Drawing;
+using System.Windows.Forms;
+namespace ZenForms.Core { [ToolboxBitmap(typeof(LinkLabel))][System.ComponentModel.Category("ZenForms Modern Controls")] public class ZenLinkLabel:LinkLabel { public ZenLinkLabel(){LinkColor=ZenTheme.Accent;ActiveLinkColor=ZenTheme.Primary;VisitedLinkColor=ZenTheme.Muted;BackColor=Color.Transparent;Font=ZenTheme.DefaultFont;LinkBehavior=LinkBehavior.HoverUnderline;AutoSize=true;} } } //watashi wa watashi sore dake
