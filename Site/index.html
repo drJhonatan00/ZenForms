@@ -1,1 +1,169 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZenForms — Modern WinForms Controls</title>
+<meta name="description" content="ZenForms is a refined library of modern, dark-themed Windows Forms controls for .NET Framework 4.7.2. Over 60 hand-painted components in a single DLL.">
+<meta name="theme-color" content="#0F1322">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237C5CFF'/%3E%3Cpath d='M9 10h14l-10 12h10' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="ZenForms home">
+    <span class="logo"><svg viewBox="0 0 32 32" width="18" height="18"><path d="M9 10h14l-10 12h10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span>Zen<b>Forms</b></span>
+  </a>
+  <nav class="links" aria-label="Primary">
+    <a href="#showcase">Showcase</a>
+    <a href="#components">Components</a>
+    <a href="#theme">Theme</a>
+    <a href="#start">Get started</a>
+  </nav>
+  <a class="btn btn-sm" href="assets/ClassLibrary.dll" download>
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+    Download DLL
+  </a>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <canvas id="constellation" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <span class="pill reveal"><span class="dot"></span> Version 1.0 &nbsp;·&nbsp; .NET Framework 4.7.2</span>
+    <h1 class="reveal">Windows Forms,<br><span class="grad">beautifully reimagined.</span></h1>
+    <p class="lead reveal">ZenForms is a library of <b data-count-total>60+</b> hand-painted controls that bring a calm, modern, dark aesthetic to your desktop applications — from buttons and charts to 3D viewers and workflow canvases. One DLL. Zero dependencies.</p>
+    <div class="cta reveal">
+      <a class="btn btn-lg" href="assets/ClassLibrary.dll" download>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+        Download the DLL
+        <small>167 KB</small>
+      </a>
+      <a class="btn btn-ghost btn-lg" href="#components">Explore components</a>
+    </div>
+
+    <div class="window reveal" id="heroWindow">
+      <div class="win-bar"><i></i><i></i><i></i><span>ZenForms Demo — MainForm.cs</span></div>
+      <div class="win-body">
+        <aside class="win-side">
+          <div class="avatar-row"><span class="avatar">ZF</span><div><b>Zen Studio</b><small>Workspace</small></div></div>
+          <ul>
+            <li class="on">Dashboard</li><li>Projects</li><li>Analytics</li><li>Settings</li>
+          </ul>
+          <div class="side-foot"><span class="badge b-ok">Online</span></div>
+        </aside>
+        <div class="win-main">
+          <div class="notice"><i></i><span>Build succeeded — 0 warnings, 0 errors.</span><em>×</em></div>
+          <div class="win-grid">
+            <div class="card-mini"><h6>Throughput</h6><svg id="heroChart" viewBox="0 0 300 110" preserveAspectRatio="none"></svg></div>
+            <div class="card-mini centre"><h6>Capacity</h6><div class="ring" id="heroRing"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/><circle class="val" cx="50" cy="50" r="40"/></svg><b>72%</b></div></div>
+            <div class="card-mini wide"><h6>Deploy progress</h6><div class="bar"><span id="heroBar"></span></div><div class="row"><span class="badge">Primary</span><span class="badge b-warn">Warning</span><span class="badge b-err">Danger</span><span class="badge b-neutral">Neutral</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="wrap stats">
+  <div class="stat reveal"><b data-count="0" data-total="1">0</b><span>Controls &amp; components</span></div>
+  <div class="stat reveal"><b>1</b><span>Single DLL to reference</span></div>
+  <div class="stat reveal"><b>0</b><span>Third-party dependencies</span></div>
+  <div class="stat reveal"><b>100%</b><span>Custom GDI+ painting</span></div>
+</section>
+
+<!-- FEATURES -->
+<section class="wrap features">
+  <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 100 18 4 4 0 004-4c0-2-2-2-2-4s2-2 4-2a9 9 0 00-6-8z"/></svg></div><h3>One cohesive theme</h3><p>Every control draws from a shared palette, so your whole application feels designed rather than assembled. Call <code>ZenTheme.Apply(this)</code> and you are done.</p></div>
+  <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Smooth and responsive</h3><p>Double-buffered, anti-aliased rendering with rounded corners, soft hover transitions and animated effects that stay light on the CPU.</p></div>
+  <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4-8-4zm0 5l8 4 8-4M4 17l8 4 8-4"/></svg></div><h3>Designer-friendly</h3><p>Every control appears in the Visual Studio Toolbox under <em>ZenForms Modern Controls</em>, with tidy, categorised properties in the Properties window.</p></div>
+  <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></div><h3>Far beyond the basics</h3><p>Kanban boards, 3D model viewers, G-code previews, data profilers, command palettes and more — the controls you wish WinForms shipped with.</p></div>
+</section>
+
+
+<!-- COMPONENT CATALOGUE -->
+<section class="wrap section" id="components">
+  <div class="sec-head reveal"><span class="eyebrow">The catalogue</span><h2>Every component, at a glance.</h2><p>A short guide to each control in the library, grouped by purpose. Everything lives in the <code>ZenForms.Core</code> namespace.</p></div>
+  <div class="toolbar reveal">
+    <div class="filters" id="filters" role="tablist"></div>
+    <div class="search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Search components…" aria-label="Search components"></div>
+  </div>
+  <div class="catalog" id="catalog"></div>
+  <p class="empty" id="empty" hidden>No components match your search.</p>
+</section>
+
+<!-- THEME -->
+<section class="wrap section" id="theme">
+  <div class="sec-head reveal"><span class="eyebrow">Design language</span><h2>A palette with a point of view.</h2><p>All controls share <code>ZenTheme</code>, a compact set of colours tuned for calm, high-contrast dark interfaces. Click a swatch to copy its value.</p></div>
+  <div class="swatches" id="swatches"></div>
+</section>
+
+<!-- GET STARTED -->
+<section class="wrap section" id="start">
+  <div class="sec-head reveal"><span class="eyebrow">Get started</span><h2>From download to dazzling in minutes.</h2></div>
+  <div class="start-grid">
+    <ol class="steps reveal">
+      <li><b>Download</b><span>Grab <code>ClassLibrary.dll</code> using the button below and save it somewhere in your solution.</span></li>
+      <li><b>Add a reference</b><span>In Visual Studio: <em>Project → Add Reference → Browse</em>, then select the DLL. Your project should target .NET Framework 4.7.2 or later.</span></li>
+      <li><b>Fill the Toolbox</b><span>Right-click the Toolbox, choose <em>Choose Items…</em> and browse to the DLL. The controls appear under <em>ZenForms Modern Controls</em>.</span></li>
+      <li><b>Apply the theme</b><span>Call <code>ZenTheme.Apply(this)</code> in your form’s constructor to style the whole window in one line.</span></li>
+    </ol>
+    <div class="code reveal">
+      <div class="code-bar"><span>MainForm.cs</span><button id="copyCode">Copy</button></div>
+<pre id="codeBlock"><code><span class="k">using</span> ZenForms.Core;
+
+<span class="k">public partial class</span> <span class="t">MainForm</span> : <span class="t">Form</span>
+{
+    <span class="k">public</span> MainForm()
+    {
+        InitializeComponent();
+        <span class="t">ZenTheme</span>.Apply(<span class="k">this</span>);
+
+        <span class="c">// A command palette in three lines</span>
+        <span class="k">var</span> palette = <span class="k">new</span> <span class="t">ZenCommandPalette</span>();
+        palette.AddCommand(<span class="s">"Open project"</span>, <span class="s">"Ctrl+O"</span>, OpenProject);
+        Controls.Add(palette);
+
+        <span class="c">// Orbiting radial menu</span>
+        <span class="k">var</span> orbit = <span class="k">new</span> <span class="t">ZenOrbitMenu</span>();
+        orbit.ItemSelected += (s, e) =&gt; Text = e.Item;
+        Controls.Add(orbit);
+    }
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="wrap final reveal">
+  <div class="final-card">
+    <div class="glow" aria-hidden="true"></div>
+    <h2>Ready to make your desktop apps feel new?</h2>
+    <p>Download the compiled library and start building something beautiful today.</p>
+    <a class="btn btn-lg" href="assets/ClassLibrary.dll" download>
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
+      Download ClassLibrary.dll
+      <small>Release · 167 KB</small>
+    </a>
+    <p class="fine">Requires .NET Framework 4.7.2 &nbsp;·&nbsp; Windows Forms &nbsp;·&nbsp; Uses the built-in System.Windows.Forms.DataVisualization assembly</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#top"><span class="logo"><svg viewBox="0 0 32 32" width="16" height="16"><path d="M9 10h14l-10 12h10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Zen<b>Forms</b></span></a>
+    <span>Made by <a href="https://github.com/drJhonatan00">drJhonatan00</a></span>
+    <span>© <span id="yr">2026</span> ZenForms</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="js/main.js"></script>
+</body>
+</html>
