@@ -1,3 +1,0 @@
-using System.Drawing;
-using System.Windows.Forms; // watashi wa watashi sore dake
-namespace ZenForms.Core { public static class ZenTheme { public static Color Background=Color.FromArgb(15,19,34), Surface=Color.FromArgb(25,31,51), SurfaceRaised=Color.FromArgb(34,42,66), Primary=Color.FromArgb(124,92,255), Accent=Color.FromArgb(42,211,190), Foreground=Color.FromArgb(239,242,255), Muted=Color.FromArgb(151,161,189), Border=Color.FromArgb(55,65,91), Danger=Color.FromArgb(255,91,117); public static Font DefaultFont=new Font("Segoe UI",9.5f); public static void Apply(Control root){ if(root==null)return; root.BackColor=Background; root.ForeColor=Foreground; root.Font=DefaultFont; foreach(Control c in root.Controls)Apply(c); } } }

@@ -1,6 +1,0 @@
-using System.Drawing;
-using System.Windows.Forms;
-namespace ZenForms.Core { [ToolboxBitmap(typeof(DataGridView))][System.ComponentModel.Category("ZenForms Modern Controls")] public class ZenDataGridView:DataGridView { public ZenDataGridView(){BackgroundColor=ZenTheme.Background;BorderStyle=BorderStyle.None;GridColor=ZenTheme.Border;EnableHeadersVisualStyles=false;ColumnHeadersBorderStyle=DataGridViewHeaderBorderStyle.None;RowHeadersVisible=false;AllowUserToAddRows=false;AutoSizeColumnsMode=DataGridViewAutoSizeColumnsMode.Fill;SelectionMode=DataGridViewSelectionMode.FullRowSelect;MultiSelect=false;Font=ZenTheme.DefaultFont;ColumnHeadersDefaultCellStyle.BackColor=ZenTheme.SurfaceRaised;ColumnHeadersDefaultCellStyle.ForeColor=ZenTheme.Foreground;ColumnHeadersDefaultCellStyle.SelectionBackColor=ZenTheme.SurfaceRaised;ColumnHeadersDefaultCellStyle.Font=new Font("Segoe UI Semibold",9f);DefaultCellStyle.BackColor=ZenTheme.Surface;DefaultCellStyle.ForeColor=ZenTheme.Foreground;DefaultCellStyle.SelectionBackColor=ZenTheme.Primary;DefaultCellStyle.SelectionForeColor=Color.White;DefaultCellStyle.Padding=new Padding(6,3,6,3);AlternatingRowsDefaultCellStyle.BackColor=Color.FromArgb(29,36,57);RowTemplate.Height=34;CellBorderStyle=DataGridViewCellBorderStyle.SingleHorizontal;} } }
-
-
-//watashi wa watashi sore dake

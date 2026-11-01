@@ -1,8 +1,0 @@
-using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-namespace ZenForms.Core { [Category("ZenForms Modern Controls")] public class ZenToggle:Control { private bool isChecked; [Category("ZenForms Data")] public bool Checked{get{return isChecked;}set{if(isChecked==value)return;isChecked=value;Invalidate();OnCheckedChanged(EventArgs.Empty);}} public event EventHandler CheckedChanged; protected virtual void OnCheckedChanged(EventArgs e){EventHandler h=CheckedChanged;if(h!=null)h(this,e);} public ZenToggle(){Size=new Size(112,32);Cursor=Cursors.Hand;SetStyle(ControlStyles.UserPaint|ControlStyles.AllPaintingInWmPaint|ControlStyles.OptimizedDoubleBuffer|ControlStyles.ResizeRedraw|ControlStyles.Selectable,true);TabStop=true;} protected override void OnClick(EventArgs e){Checked=!Checked;base.OnClick(e);} protected override void OnKeyDown(KeyEventArgs e){base.OnKeyDown(e);if(e.KeyCode==Keys.Space)Checked=!Checked;} protected override void OnPaint(PaintEventArgs e){base.OnPaint(e);e.Graphics.SmoothingMode=SmoothingMode.AntiAlias;Rectangle r=new Rectangle(1,5,48,23);using(GraphicsPath p=ZenButtonBase.RoundPath(r,12))using(SolidBrush b=new SolidBrush(Checked?ZenTheme.Primary:ZenTheme.SurfaceRaised))e.Graphics.FillPath(b,p);using(SolidBrush k=new SolidBrush(Color.White))e.Graphics.FillEllipse(k,Checked?28:4,8,17,17);TextRenderer.DrawText(e.Graphics,Checked?"On":"Off",Font,new Rectangle(56,0,Width-56,Height),ZenTheme.Muted,TextFormatFlags.VerticalCenter|TextFormatFlags.Left);} } }
-
-// watashi wa watashi sore dake

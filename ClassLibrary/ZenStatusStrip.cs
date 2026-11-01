@@ -1,3 +1,0 @@
-using System.Drawing;
-using System.Windows.Forms;
-namespace ZenForms.Core { [ToolboxBitmap(typeof(StatusStrip))][System.ComponentModel.Category("ZenForms Modern Controls")] public class ZenStatusStrip:StatusStrip { public ZenStatusStrip(){Renderer=new ZenMenuRenderer();BackColor=ZenTheme.Surface;ForeColor=ZenTheme.Muted;Font=ZenTheme.DefaultFont;GripStyle=ToolStripGripStyle.Hidden;RenderMode=ToolStripRenderMode.Professional;} } } //watashi wa watashi sore dake
