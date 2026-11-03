@@ -89,7 +89,13 @@
     <Compile Include="ZenAccordion.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="ZenAgendaCalendar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenAnalogClock.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZenAuroraPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZenAvatar.cs">
@@ -98,6 +104,7 @@
     <Compile Include="ZenBadge.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ZenBreadcrumb.cs" />
     <Compile Include="ZenButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -126,6 +133,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ZenCommandPalette.cs" />
+    <Compile Include="ZenConfettiCelebration.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenContextMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -143,6 +153,9 @@
     </Compile>
     <Compile Include="ZenFormulaPlotter.cs" />
     <Compile Include="ZenGCodePreview.cs" />
+    <Compile Include="ZenGlitchLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -150,6 +163,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZenHoloCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZenJsonExplorer.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZenKanbanBoard.cs" />
@@ -175,10 +191,16 @@
     <Compile Include="ZenMaskedTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ZenMatrixConsole.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenMenuRenderer.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZenMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZenMorphingGauge.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZenNeuralConstellation.cs">
@@ -190,8 +212,14 @@
     <Compile Include="ZenNumericUpDown.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ZenOrbitLoader.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenOrbitMenu.cs" />
     <Compile Include="ZenPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZenParticleEmitter.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZenParticleField.cs">
@@ -210,10 +238,20 @@
     <Compile Include="ZenRichTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ZenRippleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenSeparator.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ZenServiceMonitor.cs" />
+    <Compile Include="ZenShortcutRecorder.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenSplitContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ZenSpringSlider.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ZenStatusStrip.cs">
@@ -222,7 +260,11 @@
     <Compile Include="ZenTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ZenTagEditor.cs" />
     <Compile Include="ZenTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ZenTextEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ZenTheme.cs">
@@ -255,6 +297,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZenWaveFormAnalyzer.cs" />
+    <Compile Include="ZenWaveformScroller.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ZenWorkflowCanvas.cs" />
   </ItemGroup>
   <ItemGroup>
