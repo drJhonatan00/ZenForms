@@ -19,7 +19,7 @@ All public controls and helper types are in the **`ZenForms.Core`** namespace. E
 - [Productivity and interaction controls](#productivity-and-interaction-controls)
 - [Advanced data and developer tools](#advanced-data-and-developer-tools)
 - [Media and visualisation tools](#media-and-visualisation-tools)
-- [Experimental animated controls](#experimental-animated-controls)
+- [Animated controls](#animated-controls)
 - [Events and threading](#events-and-threading)
 - [Support types](#support-types)
 
@@ -52,7 +52,7 @@ public partial class MainForm : Form
         InitializeComponent();
         ZenTheme.Apply(this); // Optional: apply the shared palette to the form tree.
 
-        ZenButtonBlue save = new ZenButtonBlue
+        ZenButtonBase save = new ZenButtonBase
         {
             Text = "Save",
             Location = new Point(24, 24),
@@ -105,6 +105,24 @@ button.Click += (s, e) => Confirm();
 
 Shared `ZenButtonBase` customisation: `CornerRadius`, `NormalBackColor`, `HoverBackColor`, `TextColor`, `BorderColor`, and `BorderWidth`. Individual derived buttons supply their own starting colours.
 
+### `ZenRippleButton`
+
+A standalone button with a smooth radial ripple that starts at the click point, a hover glow, and keyboard support. It derives from `Control` (not from `ZenButtonBase`), so use the normal `Text` and `Click` members plus the properties below.
+
+```csharp
+var ripple = new ZenRippleButton
+{
+    Text = "Deploy",
+    CornerRadius = 14,
+    RippleColor = Color.FromArgb(120, 255, 255, 255),
+    HoverGlowColor = ZenTheme.Accent,
+    Size = new Size(150, 44)
+};
+ripple.Click += (s, e) => Deploy();
+```
+
+Properties: `CornerRadius`, `BorderWidth`, `BorderColor`, `NormalBackColor`, `HoverBackColor`, `TextColor`, `RippleColor`, `RippleDuration` (milliseconds), `HoverGlowColor`, and `HoverGlowIntensity`.
+
 ## Everyday themed WinForms controls
 
 These are intended as familiar WinForms counterparts with ZenForms styling. Unless a wrapper is noted, use the inherited .NET control API (`Text`, `Items`, `SelectedIndex`, `DataSource`, `Nodes`, and similar members) and the standard WinForms events.
@@ -124,6 +142,9 @@ These are intended as familiar WinForms counterparts with ZenForms styling. Unle
 | `ZenDateTimePicker` | Themed date/time picker; configure `Value`, `Format`, `MinDate`, and `MaxDate`. |
 | `ZenTrackBar` | Themed slider; configure `Minimum`, `Maximum`, `Value`, and handle `Scroll` or `ValueChanged`. |
 | `ZenToggle` | Custom switch with `Checked` and `CheckedChanged`; it can be toggled by click or Space when focused. |
+| `ZenSpringSlider` | Slider whose thumb moves with spring physics. See [Specialised input controls](#specialised-input-controls). |
+| `ZenTagEditor` | Chip-style tag input with add/remove events. See [Specialised input controls](#specialised-input-controls). |
+| `ZenShortcutRecorder` | Click-to-record keyboard shortcut field. See [Specialised input controls](#specialised-input-controls). |
 
 `ZenTextBox` example:
 
@@ -145,6 +166,50 @@ choice.Items.AddRange(new object[] { "Small", "Medium", "Large" });
 choice.SelectedIndex = 0;
 ```
 
+### Specialised input controls
+
+#### `ZenSpringSlider`
+
+A numeric slider with a spring-animated thumb: when `Value` changes, the thumb eases toward it with a slight overshoot. Configure the range with `Minimum`/`Maximum`, snap values with `Step`, and tune the motion with `SpringStrength` (0.01–1.0) and `Damping` (0.1–0.99). `Value` is the logical value; `VisualValue` is the current animated position. Drag the thumb, click the track, or use the arrow keys, Page Up/Down, Home and End.
+
+```csharp
+zenSpringSlider1.Minimum = 0;
+zenSpringSlider1.Maximum = 200;
+zenSpringSlider1.Step = 5;
+zenSpringSlider1.ValueFormat = "0";
+zenSpringSlider1.ValueChanged += (s, e) => volumeLabel.Text = zenSpringSlider1.Value.ToString("0");
+zenSpringSlider1.AnimationCompleted += (s, e) => Debug.WriteLine("Settled");
+```
+
+Appearance: `ShowValueLabel`, `ShowMinMaxLabels`, `ShowTrackGlow`, `CornerRadius`, `TrackHeight`, `ThumbRadius`, `SidePadding`, `TrackColor`, `AccentColor`, `ThumbColor`, and `TextColor`. `ValueFormat` is a standard numeric format string.
+
+#### `ZenTagEditor`
+
+A chip-style tag input. Type text and press **Enter** to add a tag; press **Backspace** in an empty input to remove the last tag, or click the remove mark on a chip. `PreventDuplicates` (default `true`) rejects repeated tags and `MaximumTags` limits the count (`-1` means no limit).
+
+```csharp
+zenTagEditor1.MaximumTags = 8;
+zenTagEditor1.AddTag("winforms");
+zenTagEditor1.AddTag("dark-theme");
+zenTagEditor1.TagAdded += (s, e) => Debug.WriteLine("Added: " + e.Tag);
+zenTagEditor1.TagRemoved += (s, e) => Debug.WriteLine("Removed: " + e.Tag);
+```
+
+`AddTag(tag)` and `RemoveTag(tag)` return `true` when the collection changed. `ClearTags()` removes everything. `Tags` exposes the underlying `List<string>`; use the methods above to change it so events and layout stay in sync. Appearance: `CornerRadius`, `ChipRadius`, `ChipColor`, and `ChipHoverColor`.
+
+#### `ZenShortcutRecorder`
+
+Click the control and press a key combination to record it; **Backspace** or **Esc** clears the shortcut. Read or set `ShortcutKeys` (a `System.Windows.Forms.Keys` value that includes modifiers), check `HasShortcut`, and handle `ShortcutChanged`. Set `AllowModifierOnly` to accept combinations such as Ctrl+Shift without a main key. `EmptyText` is the placeholder and `CornerRadius` styles the field.
+
+```csharp
+zenShortcutRecorder1.ShortcutChanged += (s, e) =>
+    shortcutLabel.Text = zenShortcutRecorder1.HasShortcut
+        ? zenShortcutRecorder1.ShortcutKeys.ToString()
+        : "(none)";
+```
+
+The control only records and displays the shortcut; it does not register it with the system. Your application decides how to act on it.
+
 ### Containers, text, and data
 
 | Control | Purpose and typical use |
@@ -162,10 +227,23 @@ choice.SelectedIndex = 0;
 | `ZenDataGridView` | Themed grid; bind with `DataSource` or populate `Rows`/`Columns` as for `DataGridView`. |
 | `ZenTreeView` | Themed hierarchical tree; populate `Nodes` and handle `AfterSelect`. |
 | `ZenSeparator` | Decorative divider for separating groups or sections. |
+| `ZenBreadcrumb` | Neon breadcrumb navigation bar. See [`ZenBreadcrumb`](#zenbreadcrumb). |
 
 ```csharp
 var card = new ZenCard { CornerRadius = 18, Padding = new Padding(16), Size = new Size(320, 150) };
 card.Controls.Add(new ZenLabel { Text = "Account overview", AutoSize = true, Location = new Point(16, 16) });
+```
+
+#### `ZenBreadcrumb`
+
+A navigation bar that shows a path as clickable segments. Fill `Segments` (a `ZenBreadcrumbSegmentCollection`, which behaves like a collection of strings) or call `AddSegment(text)`; `ClearSegments()` empties it. `SelectedIndex` is the active segment (`-1` when none) and `SelectedSegment` returns its text. `SegmentClicked` fires on mouse click or keyboard activation (Enter/Space) and supplies `Index` and `Text`. The left/right arrow keys, Home and End move between segments. `Separator` is the text drawn between segments and `CornerRadius` styles the bar.
+
+```csharp
+zenBreadcrumb1.AddSegment("Home");
+zenBreadcrumb1.AddSegment("Projects");
+zenBreadcrumb1.AddSegment("ZenForms");
+zenBreadcrumb1.Separator = "›";
+zenBreadcrumb1.SegmentClicked += (s, e) => NavigateTo(e.Index, e.Text);
 ```
 
 ## Menus and tool strips
@@ -191,6 +269,72 @@ Controls.Add(menu);
 ### `ZenChart` and `ZenChartType`
 
 `ZenChart` wraps the .NET Framework `System.Windows.Forms.DataVisualization.Charting.Chart`. It supports `Line`, `Spline`, `Column`, `Bar`, `Area`, `Pie`, `Doughnut`, and `StackedColumn`, with named series, category/value points, optional legend, grid and line markers. Use `AddPoint(seriesName, category, value)` for labelled categories or `AddPoint(seriesName, value)` for a value-only point. A series is created automatically the first time `AddPoint` uses its name.
+
+```csharp
+zenChart1.ChartTitle = "Monthly sales";
+zenChart1.ChartType = ZenChartType.Column;
+zenChart1.ShowLegend = true;
+zenChart1.ShowGrid = true;
+zenChart1.AddPoint("2026", "Jan", 120);
+zenChart1.AddPoint("2026", "Feb", 180);
+zenChart1.AddPoint("2026", "Mar", 155);
+
+// A second named series makes comparisons straightforward.
+zenChart1.AddPoint("2025", "Jan", 95);
+zenChart1.AddPoint("2025", "Feb", 140);
+zenChart1.AddPoint("2025", "Mar", 130);
+```
+
+For a pie or doughnut chart, use one series and one point per slice:
+
+```csharp
+zenChart1.ClearSeries();
+zenChart1.ChartType = ZenChartType.Doughnut;
+zenChart1.AddPoint("Share", "Books", 30);
+zenChart1.AddPoint("Share", "Music", 45);
+zenChart1.AddPoint("Share", "Other", 25);
+```
+
+`SeriesColor` and `SecondSeriesColor` set the alternating series colours. `ClearData()` removes points but keeps the series; `ClearSeries()` removes the series as well. `InnerChart` exposes the underlying native chart for advanced configuration. The control uses the framework charting assembly already referenced by the project; it does not add a NuGet package.
+
+### Progress, ratings, labels, and notices
+
+- **`ZenProgressBar`** displays 0–100 progress. Set `Value`; set `ShowPercentage` to show the number inside the bar.
+- **`ZenCircularProgress`** presents the same 0–100 range as a ring. Set `Value`, `ProgressColor`, `TrackColor`, and `Thickness`; `ShowPercentage` controls the centre label.
+- **`ZenLiquidGauge`** displays 0–100 as a moving liquid level. Set `Value`, `LiquidColor`, `GlassColor`, and `Animate`.
+- **`ZenLoadingSpinner`** is an animated loading indicator. Set `SpinnerColor`, `Speed` (timer interval in milliseconds), or `Spinning`.
+- **`ZenMorphingGauge`** is a neon circular gauge with a configurable `Minimum`/`Maximum` range. Setting `Value` jumps to a value immediately; call `StartAnimation(target)` (or set `TargetValue` and call `StartAnimation()`) to morph smoothly from the current value, over `AnimationDuration` milliseconds. `StopAnimation()` halts it, `IsAnimating` reports its state, and `AnimationCompleted` fires at the end. Other options: `StrokeWidth`, `CenterText`, `ShowCenterText`, `ShowTarget` (marks the target on the ring), `Label`, `PulseGlow`, `TrackColor`, `ProgressColor`, `GlowColor`, `CenterTextColor`, and `LabelColor`.
+- **`ZenOrbitLoader`** is a neon loader with satellites orbiting a core. It does not run until you call `Start()`; `Stop()` halts it and `IsRunning` reports the state. Configure `SatelliteCount`, `OrbitSpeed` (revolutions per second), `Clockwise`, `Indeterminate`, `OrbitRadius`, `SatelliteSize`, `CoreSize`, `AnimationInterval` (milliseconds), `CornerRadius`, and the colours `SurfaceColor`, `CoreColor`, `SatelliteColor`, `TextColor`, and `MutedColor`.
+- **`ZenServiceMonitor`** is a status board for a list of services; see [`ZenServiceMonitor`](#zenservicemonitor).
+- **`ZenRating`** is a mouse- and keyboard-selectable star rating. Set/read `Value` and `Maximum`; `ValueChanged` is raised when the value changes. `ActiveColor` and `InactiveColor` customise the stars.
+- **`ZenBadge`** displays compact status text. Set its inherited `Text` and `Style` (`ZenBadgeStyle.Primary`, `Success`, `Warning`, `Danger`, or `Neutral`).
+- **`ZenNotification`** is an inline message with `Text`, a `Type` (`Information`, `Success`, `Warning`, or `Error`), and `ShowCloseButton`. `Dismissed` fires when its close button is used.
+- **`ZenAvatar`** draws a circular image or initials. Set `AvatarImage` to an `Image`, or set `Text` to a person's name for generated initials. `FillColor`, `OutlineColor`, and `OutlineWidth` tune its appearance.
+- **`ZenHoloCard`** is a hover-reactive card with a light/parallax treatment. Set `Text`, `Subtitle`, `GlowColor`, and `CornerRadius`; it is decorative and does not host child controls.
+
+```csharp
+zenCircularProgress1.Value = 72;
+zenRating1.Maximum = 5;
+zenRating1.ValueChanged += (s, e) => ratingLabel.Text = zenRating1.Value + " / 5";
+zenNotification1.Type = ZenNotificationType.Success;
+zenNotification1.Text = "Changes saved";
+```
+
+## Productivity and interaction controls
+
+### `ZenAccordion`
+
+A collapsible section with a header and a scrollable child panel. Set `Text`, `Expanded`, and `ContentHeight`. Add controls to `ContentPanel.Controls` (or `ContentControls`); `ExpandedChanged` reports expand/collapse changes.
+
+```csharp
+zenAccordion1.Text = "Advanced options";
+zenAccordion1.ContentPanel.Controls.Add(new CheckBox { Text = "Enable diagnostics", AutoSize = true });
+zenAccordion1.ExpandedChanged += (s, e) => UpdateLayout();
+```
+
+### `ZenHeatmapCalendar`
+
+A year-at-a-glance activity calendar. Set `Year` to choose the displayed year, then call `SetValue(date, intensity)` for each day, where intensity is clamped to 0–4. `GetValue(date)` reads a day's level and `Clear()` removes all values. `LowColor`, `HighColor`, and `CellSize` customise the presentation. Hover over a day to see its date andnd `StackedColumn`, with named series, category/value points, optional legend, grid and line markers. Use `AddPoint(seriesName, category, value)` for labelled categories or `AddPoint(seriesName, value)` for a value-only point. A series is created automatically the first time `AddPoint` uses its name.
 
 ```csharp
 zenChart1.ChartTitle = "Monthly sales";
