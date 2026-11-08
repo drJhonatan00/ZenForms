@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ZenForms — Modern WinForms Controls</title>
-<meta name="description" content="ZenForms is a refined library of modern, dark-themed Windows Forms controls for .NET Framework 4.7.2. Over 60 hand-painted components in a single DLL.">
+<meta name="description" content="ZenForms is a refined library of modern, dark-themed Windows Forms controls for .NET Framework 4.7.2. Over 85 hand-painted components in a single DLL.">
 <meta name="theme-color" content="#0F1322">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237C5CFF'/%3E%3Cpath d='M9 10h14l-10 12h10' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/style.css">
@@ -36,12 +36,12 @@
   <div class="wrap hero-inner">
     <span class="pill reveal"><span class="dot"></span> Version 1.0 &nbsp;·&nbsp; .NET Framework 4.7.2</span>
     <h1 class="reveal">Windows Forms,<br><span class="grad">beautifully reimagined.</span></h1>
-    <p class="lead reveal">ZenForms is a library of <b data-count-total>60+</b> hand-painted controls that bring a calm, modern, dark aesthetic to your desktop applications — from buttons and charts to 3D viewers and workflow canvases. One DLL. Zero dependencies.</p>
+    <p class="lead reveal">ZenForms is a library of <b data-count-total>85+</b> hand-painted controls that bring a calm, modern, dark aesthetic to your desktop applications — from buttons and charts to 3D viewers and workflow canvases. One DLL. Zero dependencies.</p>
     <div class="cta reveal">
       <a class="btn btn-lg" href="assets/ClassLibrary.dll" download>
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
         Download the DLL
-        <small>167 KB</small>
+        <small>394 KB</small>
       </a>
       <a class="btn btn-ghost btn-lg" href="#components">Explore components</a>
     </div>
@@ -85,6 +85,107 @@
   <div class="feat reveal"><div class="ico"><svg viewBox="0 0 24 24"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></div><h3>Far beyond the basics</h3><p>Kanban boards, 3D model viewers, G-code previews, data profilers, command palettes and more — the controls you wish WinForms shipped with.</p></div>
 </section>
 
+
+<!-- SHOWCASE -->
+<section class="wrap section" id="showcase">
+  <div class="sec-head reveal"><span class="eyebrow">Live showcase</span><h2>Touch the controls.</h2><p>A web re-creation of some of the library’s signature controls. Hover, click and drag — they behave just like their WinForms counterparts.</p></div>
+  <div class="show-grid">
+
+    <article class="tile t-buttons reveal">
+      <h4>ZenButtonBase · ZenToggle <span>Inputs</span></h4>
+      <div class="demo">
+        <div class="row wrapx" style="margin-bottom:22px">
+          <button class="zbtn">Default</button>
+          <button class="zbtn primary">Primary</button>
+          <button class="zbtn accent">Accent</button>
+          <button class="zbtn outline">Outline</button>
+        </div>
+        <div class="row wrapx" style="gap:22px">
+          <label class="toggle"><input type="checkbox" checked><i></i>ZenToggle</label>
+          <label class="chk"><input type="checkbox" checked><i></i>ZenCheckBox</label>
+          <label class="chk rad"><input type="radio" name="r" checked><i></i>Option A</label>
+          <label class="chk rad"><input type="radio" name="r"><i></i>Option B</label>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile t-notify reveal">
+      <h4>ZenNotification <span>Feedback</span></h4>
+      <div class="demo col" id="notifs">
+        <div class="note info"><i></i><span>Information — a new version is available.</span><em title="Dismiss">×</em></div>
+        <div class="note ok"><i></i><span>Success — changes saved.</span><em title="Dismiss">×</em></div>
+        <div class="note warn"><i></i><span>Warning — cache is nearly full.</span><em title="Dismiss">×</em></div>
+        <div class="note err"><i></i><span>Error — export failed.</span><em title="Dismiss">×</em></div>
+      </div>
+      <button class="zbtn small outline" id="resetNotifs">Restore notifications</button>
+    </article>
+
+    <article class="tile t-gauge reveal">
+      <h4>ZenLiquidGauge <span>Feedback</span></h4>
+      <div class="demo centre">
+        <canvas id="gauge" aria-label="Liquid gauge"></canvas>
+        <input class="zrange" id="gaugeRange" type="range" min="0" max="100" value="64" aria-label="Gauge level" style="margin-top:16px">
+      </div>
+    </article>
+
+    <article class="tile t-holo reveal">
+      <h4>ZenHoloCard <span>Effects</span></h4>
+      <div class="demo centre">
+        <div class="holo" id="holo"><div class="shine"></div><b>Holo card</b><small>Move your pointer across me</small></div>
+      </div>
+    </article>
+
+    <article class="tile t-orbit reveal">
+      <h4>ZenOrbitMenu <span>Navigation</span></h4>
+      <div class="demo centre">
+        <div class="orbit" id="orbit"></div>
+        <p class="hint" id="orbitHint">Click an item.</p>
+      </div>
+    </article>
+
+    <article class="tile t-chart reveal">
+      <h4>ZenChart <span>Data</span></h4>
+      <div class="seg" id="chartTabs" role="tablist">
+        <button class="on" data-t="line">Line</button><button data-t="column">Column</button><button data-t="area">Area</button><button data-t="donut">Doughnut</button>
+      </div>
+      <div class="demo"><svg id="chart" viewBox="0 0 420 200" role="img" aria-label="Sample chart"></svg></div>
+    </article>
+
+    <article class="tile t-progress reveal">
+      <h4>Progress · Spinner · Rating <span>Feedback</span></h4>
+      <div class="demo" style="gap:20px">
+        <div class="bar lg"><span id="pbar"></span></div>
+        <div class="row" style="gap:26px">
+          <div class="ring sm" id="pring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="40"/><circle class="val" cx="50" cy="50" r="40"/></svg><b>0%</b></div>
+          <div class="spinner" aria-label="Loading"></div>
+          <div class="stars" id="stars" role="radiogroup" aria-label="Rating"></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile t-heat reveal">
+      <h4>ZenHeatmapCalendar <span>Data</span></h4>
+      <div class="demo"><div class="heat" id="heat"></div></div>
+      <div class="legend">Less <i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</div>
+    </article>
+
+    <article class="tile t-cmd reveal">
+      <h4>ZenCommandPalette <span>Navigation</span></h4>
+      <div class="demo">
+        <div class="palette">
+          <div class="p-search"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="pq" type="text" placeholder="Type a command…" aria-label="Command search" autocomplete="off"></div>
+          <ul id="pl"></ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="tile t-code reveal">
+      <h4>ZenCodeRain <span>Effects</span></h4>
+      <div class="demo"><canvas id="rain" height="170" aria-label="Code rain animation"></canvas></div>
+    </article>
+
+  </div>
+</section>
 
 <!-- COMPONENT CATALOGUE -->
 <section class="wrap section" id="components">
@@ -148,7 +249,7 @@
     <a class="btn btn-lg" href="assets/ClassLibrary.dll" download>
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></svg>
       Download ClassLibrary.dll
-      <small>Release · 167 KB</small>
+      <small>Release · 394 KB</small>
     </a>
     <p class="fine">Requires .NET Framework 4.7.2 &nbsp;·&nbsp; Windows Forms &nbsp;·&nbsp; Uses the built-in System.Windows.Forms.DataVisualization assembly</p>
   </div>
