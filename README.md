@@ -6,7 +6,8 @@
 
 **A themed WinForms component library for .NET Framework 4.7.2**
 
-<img width="480" height="234" alt="1000049824" src="https://github.com/user-attachments/assets/d9b28dae-5a33-40ae-a454-51d4101be337" />
+<img width="983" height="697" alt="1000049830" src="https://github.com/user-attachments/assets/e533da73-eaef-436d-8eb7-77921ae0a6cf" />
+
 
 
 ZenForms Core is a collection of individually implemented Windows Forms controls. It combines themed replacements for everyday WinForms widgets with experimental visual controls and practical specialist tools. The library targets Windows and the .NET Framework; it is not a cross-platform UI toolkit.
@@ -420,6 +421,8 @@ zenWorkflowCanvas1.NodeSelected += (s, e) => selectedNodeLabel.Text = e.Node.Tit
 ```
 
 ### `ZenTimeline`
+
+<img width="480" height="234" alt="1000049824" src="https://github.com/user-attachments/assets/d9b28dae-5a33-40ae-a454-51d4101be337" />
 
 A vertical event/milestone timeline. Add entries with a title, description, time label, and optionally a point colour. Click an entry to select it; `ItemSelected` supplies both its index and `ZenTimelineItem`. The mouse wheel scrolls a long timeline.
 
