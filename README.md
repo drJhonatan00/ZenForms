@@ -1,10 +1,13 @@
 <div align="center">
-    
+
 # ZenForms Core
 
 </div>
 
 **A themed WinForms component library for .NET Framework 4.7.2**
+
+<img width="480" height="234" alt="1000049824" src="https://github.com/user-attachments/assets/d9b28dae-5a33-40ae-a454-51d4101be337" />
+
 
 ZenForms Core is a collection of individually implemented Windows Forms controls. It combines themed replacements for everyday WinForms widgets with experimental visual controls and practical specialist tools. The library targets Windows and the .NET Framework; it is not a cross-platform UI toolkit.
 
@@ -89,6 +92,9 @@ ZenTheme.Apply(this);
 Most controls inherit the normal WinForms API of their base class. Two composite controls expose a small, explicit wrapper API: `ZenTextBox` and `ZenComboBox`; their public members are described below. Controls with richer behaviour have their own properties, methods, and events.
 
 ## Button
+
+<img width="213" height="128" alt="1000049778" src="https://github.com/user-attachments/assets/6dceab8b-3bda-487f-a0c9-1d0d703d9104" />
+
 
 The library includes a simple, stylish, and highly customizable button, called ZenButtonBase.
 
@@ -273,6 +279,9 @@ Controls.Add(menu);
 
 ### `ZenChart` and `ZenChartType`
 
+<img width="1177" height="820" alt="1000049780" src="https://github.com/user-attachments/assets/334cd491-fffb-43ec-806f-2bdb2d5cc062" />
+
+
 `ZenChart` wraps the .NET Framework `System.Windows.Forms.DataVisualization.Charting.Chart`. It supports `Line`, `Spline`, `Column`, `Bar`, `Area`, `Pie`, `Doughnut`, and `StackedColumn`, with named series, category/value points, optional legend, grid and line markers. Use `AddPoint(seriesName, category, value)` for labelled categories or `AddPoint(seriesName, value)` for a value-only point. A series is created automatically the first time `AddPoint` uses its name.
 
 ```csharp
@@ -329,6 +338,9 @@ zenNotification1.Text = "Changes saved";
 
 ### `ZenAccordion`
 
+<img width="526" height="357" alt="1000049774" src="https://github.com/user-attachments/assets/22cc45aa-a16c-46f8-a538-bd537c8d9d41" />
+
+
 A collapsible section with a header and a scrollable child panel. Set `Text`, `Expanded`, and `ContentHeight`. Add controls to `ContentPanel.Controls` (or `ContentControls`); `ExpandedChanged` reports expand/collapse changes.
 
 ```csharp
@@ -338,6 +350,9 @@ zenAccordion1.ExpandedChanged += (s, e) => UpdateLayout();
 ```
 
 ### `ZenHeatmapCalendar`
+
+<img width="918" height="285" alt="1000049797" src="https://github.com/user-attachments/assets/040064d3-1c08-42a9-9b1e-7fbb55dc0a68" />
+
 
 A year-at-a-glance activity calendar. Set `Year` to choose the displayed year, then call `SetValue(date, intensity)` for each day, where intensity is clamped to 0–4. `GetValue(date)` reads a day's level and `Clear()` removes all values. `LowColor`, `HighColor`, and `CellSize` customise the presentation. Hover over a day to see its date and level.
 
@@ -371,6 +386,9 @@ Other API: `RemoveCommand(name)` returns whether an item was removed; `ClearComm
 
 ### `ZenKanbanBoard`
 
+<img width="820" height="506" alt="1000049799" src="https://github.com/user-attachments/assets/7fa562ac-3d30-4956-b94a-0882d70159a4" />
+
+
 A horizontal board with named columns and draggable cards. Create columns before adding cards. `CardMoved` supplies the card title and source/destination column names.
 
 ```csharp
@@ -386,6 +404,9 @@ zenKanbanBoard1.CardMoved += (s, e) =>
 Additional methods: `RemoveColumn(name)`, `ClearCards(columnName)`, and `GetCardTitles(columnName)`. `CardColor` changes the card background.
 
 ### `ZenWorkflowCanvas`
+
+<img width="1173" height="554" alt="1000049829" src="https://github.com/user-attachments/assets/aed8e5ff-2c69-4afc-9548-096ad3376aaf" />
+
 
 A small visual workflow canvas. `AddNode` returns a node object; `Connect` links two nodes belonging to that canvas. Drag nodes to reposition them. `NodeSelected` returns the selected node. `RemoveNode` also removes its links; `ClearWorkflow()` clears all nodes and links.
 
@@ -470,6 +491,9 @@ API: `NewDocument()`, `OpenDocument()` (shows a dialog) or `OpenDocument(path)`,
 ## Advanced data and developer tools
 
 ### `ZenLogConsole`
+
+<img width="836" height="478" alt="1000049805" src="https://github.com/user-attachments/assets/b1ac11aa-87e8-42ac-87ef-7b2a5888e579" />
+
 
 A colour-coded in-form log viewer with timestamps, a text filter, a Clear button, and a bounded history. Use `Write(message)` for Information or pass an explicit `ZenLogLevel` (`Trace`, `Information`, `Success`, `Warning`, `Error`). `MaxEntries`, `AutoScroll`, and `ShowTimestamp` control behaviour; `Entries` is a read-only view; `EntryAdded` fires when a record is written.
 
@@ -629,6 +653,9 @@ Members: `OpenFile`, `SaveFile`, `FindHex(sequence)` (searches forward from the 
 
 ### `ZenFormulaPlotter`
 
+<img width="772" height="446" alt="1000049794" src="https://github.com/user-attachments/assets/50407e91-eabb-44c7-add2-67638e85bcc1" />
+
+
 Plots a function of `x`. Type an expression and press Enter or click the plot button; the mouse wheel zooms around the cursor and dragging pans. Set `Formula` (default `sin(x)`) and `CurveColor`, call `Plot()` to redraw, and handle `FormulaError` (it supplies `Message`) for invalid expressions.
 
 ```csharp
@@ -682,6 +709,8 @@ The helper types `GateType`, `NodeKind`, `CircuitNode`, `TruthTable`, `OutputCha
 
 ### `ZenMediaPlayer`
 
+<img width="1033" height="546" alt="1000049808" src="https://github.com/user-attachments/assets/0d637731-f0f1-4fba-a156-cf7568080c56" />
+
 A compact MP3/MP4 player using the Windows Media Player ActiveX control. It includes open, play, pause, stop, seek, volume, time display, and full-screen controls. Use `Open(path)`, `Play()`, `Pause()`, `Stop()`, or `OpenFileDialogAndPlay()`. `Volume` and `FullScreen` are configurable; `FileName` is read-only. Events: `MediaOpened`, `MediaEnded`, and `MediaError`.
 
 ```csharp
@@ -692,7 +721,10 @@ zenMediaPlayer1.Open(@"C:\Media\clip.mp4");
 
 **Windows requirement:** `WMPlayer.OCX` / Windows Media Player Legacy must be installed and enabled. Supported formats and codecs depend on the target Windows installation. Validate the application's target architecture against the registered ActiveX component. MP4 playback is not guaranteed on every Windows image.
 
+
 ### `ZenModelViewer`
+
+<img width="1286" height="979" alt="1000049809" src="https://github.com/user-attachments/assets/5f029500-453f-4132-945c-b4d36369d381" />
 
 A GDI+-based mesh viewer for **OBJ**, **STL (ASCII and binary)**, **PLY ASCII**, and **OFF**. It triangulates polygon faces and normalises the mesh for viewing. The left mouse button orbits, the wheel zooms, and the right mouse button pans. Toolbar controls open a model, fit/reset the view, and toggle wireframe. Properties: `Wireframe`, `ShowAxes`, `ModelColor`, `FileName`, `VertexCount`, and `TriangleCount`; methods: `LoadModel(path)`, `OpenFileDialogAndLoad()`, `FitModel()`, and `ResetView()`; events: `ModelLoaded` and `ModelError`.
 
@@ -704,7 +736,11 @@ zenModelViewer1.LoadModel(@"C:\Models\part.obj");
 
 Large meshes may draw slowly because the renderer uses GDI+. Binary PLY, OBJ/MTL materials and textures, and animation are not supported.
 
+
 ### `ZenWaveformAnalyzer`
+
+<img width="1168" height="550" alt="1000049828" src="https://github.com/user-attachments/assets/ec83c3e8-5876-4877-a4fb-bd8a4ef647e3" />
+
 
 Opens and visualises WAV audio as a waveform; it is an analyser, **not an audio player**. It accepts integer PCM at 8, 16, 24, or 32 bits and IEEE-float 32-bit data. It reports sample rate, channel count, duration, and cursor position. Clicking the waveform updates `PositionSeconds` and raises `SeekRequested`, allowing an application with its own audio engine to seek to that position.
 
@@ -734,6 +770,9 @@ Properties: `PlaybackPosition` (0–1), `PlaybackSpeed`, `Loop`, `IsPlaying` (re
 
 
 ### `ZenGCodePreview`
+
+<img width="787" height="570" alt="1000049795" src="https://github.com/user-attachments/assets/cf0cecab-5b3c-4757-b889-a1ca044af889" />
+
 
 A visual preview for 3D-printer G-code. `LoadGCode(path)` reads linear `G0`/`G1` moves with absolute `X`, `Y`, `Z`, and `E` coordinates. Extrusion and travel moves are drawn differently; the layer slider reveals the print progressively. Use `ShowTravel` to hide travel paths and `IsometricView` for an approximate isometric projection. Scroll to zoom and drag to pan; `LayerCount` and `CurrentLayer` are read-only.
 
@@ -807,6 +846,9 @@ API: `LoadImage(Image)` or `LoadImage(path)`, `SimulationMode`, `Simulate()` (re
 The simulations are approximations for design review, not a medical or certification tool.
 
 ## Animated controls
+
+<img width="510" height="432" alt="1000049784" src="https://github.com/user-attachments/assets/12c6db87-50d6-427a-be80-cce4c10b0ab2" />
+
 
 These controls are deliberately expressive UI decorations or visual indicators; they use timers and mouse interaction rather than external animation packages. Avoid placing many high-refresh animated controls on a single form, and set their animation properties appropriately for your application.
 
