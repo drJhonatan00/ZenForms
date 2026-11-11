@@ -951,7 +951,7 @@ The build artefact is a class library; it does not contain a standalone demo app
 
 ---
 
-Developed by drJhonatan00
+Developed by <a href="https://github.com/drJhonatan00">drJhonatan00</a>
 
 
 <!--私は私、それだけ-->
