@@ -121,7 +121,7 @@ namespace ZenForms.Core
                 status.Text = "The file cannot was opened";
                 EventHandler<ModelViewerErrorEventArgs> handler = ModelError;
                 if (handler != null) handler(this, new ModelViewerErrorEventArgs("Failed to load the model. Ensure that it has one of the specified extensions and that it isn't corrupted.", ex));
-                else MessageBox.Show(FindForm(), "Falha ao carregar o modelo 3D:\r\n" + ex.Message, "ZenModelViewer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else MessageBox.Show(FindForm(), "Failed to load 3D model:\r\n" + ex.Message, "ZenModelViewer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
