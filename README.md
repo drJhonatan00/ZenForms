@@ -797,6 +797,8 @@ This is a visual path preview, not a slicer or firmware simulator. Relative posi
 
 ### `ZenFractalExplorer`
 
+<img width="1146" height="633" alt="1000050312" src="https://github.com/user-attachments/assets/226a4382-1d23-4474-9c6e-205ae60d79d0" />
+
 An interactive Mandelbrot and Julia set explorer. The toolbar button switches between the two sets, the mouse wheel zooms around the cursor, and dragging with the left button pans. The keyboard also works: `+`/`-` zoom and `R` resets the view. The status line shows the mode, zoom and the complex-plane coordinates under the cursor.
 
 ```csharp
@@ -810,6 +812,8 @@ zenFractalExplorer1.ResetView();
 Properties: `Mode` (`ZenFractalMode.Mandelbrot` or `Julia`), `MaxIterations` (default 120; higher values show more detail but render more slowly), and `Zoom` (0.25 to 1,000,000). Methods: `Render()` and `ResetView()`. Events: `RenderCompleted` and `RenderFailed` (`ZenFractalRenderErrorEventArgs.Exception`). Rendering is CPU-based, so deep zooms with high iteration counts take longer.
 
 ### `ZenPixelForge`
+
+<img width="1175" height="703" alt="1000050310" src="https://github.com/user-attachments/assets/7bc1c28d-d390-4720-a88b-46872b52bcd9" />
 
 A small pixel-art editor. It has Pen, Eraser and Fill tools, a colour palette with an Add-colour button, a grid toggle, Undo/Redo history, canvas size inputs, and PNG open/save.
 
@@ -838,6 +842,8 @@ if (zenScreenCaptureStudio1.SaveImage(@"C:\Shots\today.png"))
 API: `CaptureScreen()` (returns a copy of the captured bitmap), `SaveImage(path)` (`.png`, `.jpg`, `.jpeg`; asks before overwriting and returns `false` if declined or if saving fails), `CopyToClipboard()`, `Image` (get returns an independent clone; set loads an image into the editor), and the `ImageCaptured` event. The capture happens immediately, so your own window is part of the screenshot unless you minimise or hide it first. Only the primary monitor is captured.
 
 ### `ZenVisionAccessibility`
+
+<img width="1147" height="646" alt="1000050315" src="https://github.com/user-attachments/assets/cd0d2d79-6c81-4352-80d7-d28c1d806eeb" />
 
 A visual lab for checking how a design reads under colour-vision deficiencies, plus a contrast checker. Load an image and pick a simulation mode (`VisionSimulationMode`: `None`, `Protanopia`, `Deuteranopia`, `Tritanopia`, `Grayscale`). To check contrast, click **Choose colour 1** or **Choose colour 2** and then click a pixel in the image; the control shows both swatches and their contrast ratio.
 
@@ -946,6 +952,9 @@ WinForms controls should normally be created, changed, and disposed on the UI th
 
 Dispose forms and controls normally through WinForms ownership (`using` for standalone forms/dialogues, or the parent form's component lifecycle). Animated controls own timers and stop/dispose them with the control.
 
+<img width="1142" height="595" alt="1000050314" src="https://github.com/user-attachments/assets/df244bc2-3bb0-45d7-b4eb-3a196c58c103" />
+
+
 ## Project structure
 
 ```text
@@ -957,6 +966,17 @@ ClassLibrary/
 ```
 
 The build artefact is a class library; it does not contain a standalone demo application. Reference the DLL from your own WinForms executable and add the controls you need.
+
+
+## Some Images
+
+
+
+<img width="1147" height="641" alt="1000050317" src="https://github.com/user-attachments/assets/629ab211-c47f-42fc-b82b-11a3749f32df" />
+
+<img width="1142" height="647" alt="1000050313" src="https://github.com/user-attachments/assets/a3d198d7-3cb8-4bf3-9e88-6f2e4d79b34d" />
+<img width="1142" height="641" alt="1000050311" src="https://github.com/user-attachments/assets/29fcf31e-31c7-4872-a0bc-d73e1f9fc317" />
+
 
 ---
 
