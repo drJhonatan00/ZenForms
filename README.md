@@ -119,6 +119,9 @@ Shared `ZenButtonBase` customisation: `CornerRadius`, `NormalBackColor`, `HoverB
 
 ### `ZenRippleButton`
 
+<img width="979" height="672" alt="1000050304" src="https://github.com/user-attachments/assets/29e73932-5b30-4567-8f8f-7762ddac13e4" />
+
+
 A standalone button with a smooth radial ripple that starts at the click point, a hover glow, and keyboard support. It derives from `Control` (not from `ZenButtonBase`), so use the normal `Text` and `Click` members plus the properties below.
 
 ```csharp
@@ -179,6 +182,9 @@ choice.SelectedIndex = 0;
 ```
 
 ### Specialised input controls
+
+<img width="1044" height="707" alt="1000050305" src="https://github.com/user-attachments/assets/bdee1a14-9953-4380-b77b-ad1099365270" />
+
 
 #### `ZenSpringSlider`
 
@@ -915,6 +921,9 @@ zenConfettiCelebration1.Play();
 Each of these controls runs its own timer. Start them only when they are visible, use `AnimationEnabled`, `Paused`, or `Stop()` while a form is in the background, and keep the number of simultaneous animated controls small on older machines.
 
 ## Support types
+
+<img width="1185" height="718" alt="1000050303" src="https://github.com/user-attachments/assets/f3514c4e-b38c-4050-9f7b-003293562f14" />
+
 
 These public enums and event-argument types are used by the controls above:
 
